@@ -33,7 +33,6 @@ How does it work?
 """
 # Function to perform Ternary Search
 
-
 def ternarySearch(l, r, key, ar):
     while r >= l:
 
