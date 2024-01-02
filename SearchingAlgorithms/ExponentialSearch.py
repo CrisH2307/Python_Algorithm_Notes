@@ -1,6 +1,6 @@
 """
 _ Exponential Search: Finding posn by locating an element by narrowing down the search
-range in a series of steps that grow exponentially
+range in a series of steps that grow exponentially.
 
 
 Given a sorted array, and an element x to be
