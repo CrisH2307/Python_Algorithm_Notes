@@ -58,4 +58,103 @@ def push(self, new_data):
     
     # 5. Move the head to point to the new node
     self.head = new_node
+
+
+# Insert between two nodes
+'''
+1. Add a node after a given node
++ First, create a new_node
++ Now insert the data in the new_node
++ Point the next of new_node ot the next of previous node
++ Point the next of previous node to new_node
++ Point the previous of new_node to previous node
++ Point the previous of next of new_node to new_node
+'''
+def insertAfter(self, prev_node, new_data):
+    # Check if the given prev_node is None
+    if prev_node is None:
+        print("This node doesnt exist in list")
+        return
     
+    # 1. Allocate node and put in the data
+    new_node = Node(data = new_data)
+
+    # 2. Make next of new_node as next of prev_node
+    new_node.next = prev_node.next
+
+    # 3. Make the next of prev_node as new_node
+    prev_node.next = new_node
+
+    # 4. Make prev_node as previous of new_node
+    new_node.prev = prev_node
+
+    # 5. Change previous of new_node's next node
+    if new_node.next is not None:
+        new_node.next.prev = new_node
+
+'''
+2. Add a node before a given node
++ Allocate memory for a new_node
++ Put the data in new_node
++ Set the previous pointer of this new_node as the previous node of the next_node
++ Set the previous pointer of the next_node as the new_node
++ Set the next pointer of this new_node as the next_node
++ Set the next pointer of the previous of new_node to new_node
+'''
+def insertAfter(self, next_node, new_data):
+    # Check if the given next_node is None
+    if next_node is None:
+        print("This node doesnt exist in list")
+        return
+    
+    # 1. Allocate node and put in the data
+    new_node = Node(data = new_data)
+
+    # 2. Make previous of new node as previous of prev_node
+    new_node.prev = next_node.prev
+
+    # 3. Make previous of next_node as new_node
+    next_node.next = new_node
+
+    # 4. Make next_node as next of new_node
+    new_node.next = new_node
+
+    # 5. Change next of new_node's previous node
+    if new_node.prev is not None:
+        new_node.prev.next = new_node
+    else:
+        head = new_node
+
+'''
+3. Insertion at the end
++ Create a new_node
++ Put the value in the new_node
++ Make the next ptr of new_node as None
++ If the list is empty, make new_node as the head
++ Otherwise, travel to the end of the linked list
++ Now make the next pointer of the last node point to new_node
++ Change the previous pointer of new_node tot he last node of the list
+'''
+def append(self, new_data):
+    # 1. Allocate node and put in the data
+    new_node = Node(data = new_data)
+    last = self.head
+
+    # 2. This new_node is going to be the last node, so make the next of it as None
+    new_node.next = None
+
+    # 3. Af the LL is empty, then make the new_node as head
+    if self.head is None:
+        new_node.prev = None
+        self.head = new_node
+        return
+
+    # 4. Else traverse till the last node
+    while (last.next is not None):
+        last = last.next
+    
+    # 5. Change the next of last node
+    last.next = new_node
+
+    # 6. Make last node as previous of new node
+    new_node.prev = last
