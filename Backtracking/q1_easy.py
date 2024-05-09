@@ -5,7 +5,8 @@ Subset: A subset of an array is a tuple that can be obtained from the
 array by removing some (possibly all) elements of it
 
 Input: N = 3, Arr = [1, 2, 3]
-Output: {}
+Output: 
+{}
 {1}
 {1, 2}
 {1, 2, 3}
@@ -26,8 +27,7 @@ Explanation: These are all the subsets that can be formed from the given array,
 it can be proven that no other subset exists other than the given output.
 
 
-
-Explain:
+Method 1: Using Backtracking
 - Before jumping into the solution, can we observe some kind of relation between
 the size of array N and number of subsets? Yes, there exists a relation
     N = 2 ^ N
@@ -74,6 +74,7 @@ if __name__ == "__main__":
         print(*subset)
     '''
     Output:
+    {}
     1 
     1 2 
     1 2 3 
@@ -82,3 +83,49 @@ if __name__ == "__main__":
     2 3 
     3     
     '''
+
+'''
+Method 2: Using Bit Manipulation
+Observation: A bit can be either 0 or 1. What can we deduce from this?
+
+Since, each element has only two choices i.e. either get included or get 
+excluded. Assign these choices to a bit representation such that:
+0 means Excluded
+1 means Included
+i'th bit represents i'th element of the array
+
+Now lets say, there are N elements in the array. This array will have 2^N subsets. 
+These subsets can be uniquely expressed in form of Bit representation of number from 0 to (2^N)-1.
+
+Example: If elements in an array of size 2 = {A, B}
+All the subsets of this array form the bit representation of number from 0 to (2^2)-1 i.e. 0 to 3
+
+0 = 00 => A excluded, B excluded => { empty }
+1 = 01 => A excluded, B included => { B }
+2 = 10 => A included, B excluded => { A }
+3 = 11 => A included, B included=> { A, B }
+
+
+Step by step:
+- Iterate numbers from 0 to (2^n) - 1
+- Generate binary representation of that number and include the elements of array
+as per below cases:
+    + If the i'th bit is 1, the include i'th element of the array into current subset
+    + If the i'th bit is 0, do nothing and continue
+- Each bit representation of the number will give a unique subset.
+'''
+#Function to find the subsets of the given array
+def findSubsets(nums, n):
+    # Loop through all possible subsets using bit manipulation
+    for i in range(1 << n):
+        # Loop through all elements of the input array
+        for j in range(n):
+            # Check if the j'th bit is set in the current subset
+            if i & (1 << j) != 0:
+                # If the j'th bit is set, add the j'th element to the subset
+                print(nums[j], end=" ")
+        print()
+
+arr = [1, 2, 3]
+n = len(arr)
+findSubsets(arr, n)
