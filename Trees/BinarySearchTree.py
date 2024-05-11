@@ -119,6 +119,65 @@ class BST:
             print(curr.data, end="  ")
             
 
+## BST RECURSIVE METHOD
+class BST:
+    class Node:
+        def __init__(self, data = None, left=None, right=None) -> None:
+            self.data = data
+            self.left = left
+            self.right = right
+    
+    def __init__(self) -> None:
+        self.root = None
+    
+    def r_search(self, data, subtree):
+        if subtree is None:
+            return None
+        else:
+            if data < subtree.data:
+                return self.r_search(data, subtree.left)
+            elif data > subtree.data:
+                return self.r_search(data, subtree.right)
+            else:
+                return subtree
+    
+    def search_recursive(self, data):
+        return self.r_search(data, self.root)
+    
+    def insert(self, data, subtree):
+        if subtree is None:
+            return BST.Node(data)
+        elif data < subtree.data:
+            subtree.left = self.insert(data, subtree.left)
+            return subtree
+        else:
+            subtree.right = self.insert(data, subtree.right)
+            return subtree
+    
+    def recursive_insert(self, data):
+        self.root = self.insert(data, self.root)
+
+    def print_inorder(self, subtree):
+        if subtree is not None:
+            self.print_inorder(subtree.left)
+            print(subtree.data, end = "  ")
+            self.print_inorder(subtree.right)
+    
+    def print(self):
+        self.print_inorder(self.root)
+        print("")
+
+    def print_preorder(self, subtree):
+        if subtree is not None:
+            print(subtree.data, end=" ")
+            self.print_preorder(subtree.left)
+            self.print_preorder(subtree.right)
+        
+    def print2(self):
+        self.print_preorder(self.root)
+        print("")
+
+
 
 ## INSERTING NODE
 class Node:
@@ -236,4 +295,12 @@ _ Assign that node into None
 Case 2: Delete a Node in Single Child
 _ Copy the child to the node and delete the node
 
+'''
+
+
+## TRAVERSAL OF BINARY TREE
+'''
+_ Visiting all the nodes of the binary tree/
+1. Depth-First Search (DFS)
+2. Breadth-First Search
 '''
