@@ -76,3 +76,116 @@ print(hashTable)
 removeData(123)
 
 print(hashTable)
+
+
+
+
+
+# IMPLEMENTATION AS A CLASS
+'''
+- A hash table allows for quick insertion, deletion and retrieval of data
+- Seperate chaining is a technique used to handle collisions in a hash table.
+When two or more keys map to the same index in the array, we store them in a 
+linked list at that index. It allows us to store multiple values at the same
+index and still be able to retrive them using their key.
+
+
+'''
+
+class Node:
+    def __init__(self, key, value) -> None:
+        self.key = key
+        self.value = value
+        self.next = None
+
+class HashTable:
+    def __init__(self, capacity) -> None:
+        self.capacity = capacity
+        self.size = 0
+        self.table = [None] * capacity
+
+    def _hash(self, key) -> int:
+        return hash(key) % self.capacity
+
+    def insert(self, key, value):
+        index = self._hash(key)
+
+        if self.table[index] is None:
+            self.table[index] = Node(key, value)
+            self.size += 1
+        else:
+            current = self.table[index]
+            while current:
+                if current.key == key:
+                    current.value = value
+                    return
+                current = current.next
+            new_node = Node(key, value)
+            new_node.next = self.table[index]
+            self.table[index] = new_node
+            self.size += 1
+    
+    def search(self, key):
+        index = self._hash(key)
+
+        curr = self.table[index]
+        while curr:
+            if curr.key == key:
+                return curr.value
+            curr = curr.next
+        raise KeyError(key)
+
+    def remove(self, key):
+        index = self._hash(key)
+        prev = None
+        curr = self.table[index]
+        
+        while curr:
+            if curr.key == key:
+                if prev:
+                    prev.next = curr.next
+                else:
+                    self.table[index] = curr.next
+                self.size -= 1
+                return
+            prev = curr
+            curr = curr.next
+        
+        raise KeyError(key)
+    
+    def __str__(self) -> str:
+        elements = []
+        for i in range(self.capacity):
+            curr = self.table[i]
+            while curr:
+                elements.append((curr.key, curr.value))
+                curr = curr.next
+        return str(elements)
+
+if __name__ == '__main__': 
+  
+    # Create a hash table with 
+    # a capacity of 5 
+    ht = HashTable(5) 
+  
+    # Add some key-value pairs 
+    # to the hash table 
+    ht.insert("apple", 3) 
+    ht.insert("banana", 2) 
+    ht.insert("cherry", 5) 
+  
+    # Check if the hash table 
+    # contains a key 
+    print("apple" in ht)  # True 
+    print("durian" in ht)  # False 
+  
+    # Get the value for a key 
+    print(ht.search("banana"))  # 2 
+  
+    # Update the value for a key 
+    ht.insert("banana", 4) 
+    print(ht.search("banana"))  # 4 
+  
+    ht.remove("apple") 
+    # Check the size of the hash table 
+    print(len(ht))  # 3 
