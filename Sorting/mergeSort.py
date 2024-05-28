@@ -30,53 +30,84 @@ Complexity:
 
 
 '''
+# def mergeSort(arr):
+#     if len(arr) > 1:
+#         # r is the point where the array is divided into two subarrays
+#         r = len(arr) // 2
+#         L = arr[:r] # Slice notation [start : stop]
+#         M = arr[r:]
+
+#         # Sort the two halves
+#         mergeSort(L)
+#         mergeSort(M)
+
+#         i = j = k = 0
+
+#         ''' until we reach either end of either L or M, pick larger among
+#         elements L and M and place them in the correct position at A[p..r] '''
+#         while i < len(L) and j < len(M):
+#             if L[i] < M[j]:
+#                 arr[k] = L[i]
+#                 i += 1
+#             else:
+#                 arr[k] = M[j]
+#                 j += 1
+#             k += 1
+
+#         while i < len(L):
+#             arr[k] = L[i]
+#             i += 1
+#             k += 1
+        
+#         while j < len(M):
+#             arr[k] = M[j]
+#             j += 1
+#             k += 1
+
 def mergeSort(arr):
     if len(arr) > 1:
-        # r is the point where the array is divided into two subarrays
-        r = len(arr) // 2
-        L = arr[:r] # Slice notation [start : stop]
-        M = arr[r:]
+        left_arr = arr[: len(arr) // 2]
+        right_arr = arr[len(arr) // 2 :]
 
-        # Sort the two halves
-        mergeSort(L)
-        mergeSort(M)
 
-        i = j = k = 0
+        # recursion
+        mergeSort(left_arr)
+        mergeSort(right_arr)
 
-        ''' until we reach either end of either L or M, pick larger among
-        elements L and M and place them in the correct position at A[p..r] '''
-        while i < len(L) and j < len(M):
-            if L[i] < M[j]:
-                arr[k] = L[i]
+        # merge
+        i = 0    # Keep track the leftmost of the array
+        j = 0    # Keep track the rightmost of the array
+        k = 0    # Keep track the merged array
+
+        while i < len(left_arr) and j < len(right_arr):
+            if left_arr[i] < right_arr[j]:
+                arr[k] = left_arr[i]
                 i += 1
+                
             else:
-                arr[k] = M[j]
+                arr[k] = right_arr[j]
                 j += 1
             k += 1
 
-        while i < len(L):
-            arr[k] = L[i]
+        while i < len(left_arr):
+            arr[k] = left_arr[i]
             i += 1
             k += 1
-        
-        while j < len(M):
-            arr[k] = M[j]
+        while j < len(right_arr):
+            arr[k] = right_arr[j]
             j += 1
             k += 1
 
-
-# Print the array
-def printList(array):
-    for i in range(len(array)):
-        print(array[i], end=" ")
-    print()
+            
+# # Print the array
+# def printList(array):
+#     for i in range(len(array)):
+#         print(array[i], end=" ")
+#     print()
 
 
 # Driver program
 if __name__ == '__main__':
-    array = [6, 5, 12, 10, 9, 1]
-
-    mergeSort(array)
-
-    print("Sorted array is: ")
-    printList(array)
+    nums = [2,3,5,6,1,4,9,12,40,33,23]
+    mergeSort(nums)
+    print(nums)
