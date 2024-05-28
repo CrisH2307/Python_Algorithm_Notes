@@ -21,6 +21,14 @@ Have we reached the end of any of the arrays?
     Yes:
         Copy all remaining elements of non-empty array
 
+Complexity:
++ Best         --> O(n*log n)
++ Worst        --> O(n*log n)
++ Average      --> O(n*log n)
++ Space Complexity --> O(n)
++ Stability    --> Yes
+
+
 '''
 def mergeSort(arr):
     if len(arr) > 1:
