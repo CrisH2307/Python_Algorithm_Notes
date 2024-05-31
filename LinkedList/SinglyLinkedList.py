@@ -90,3 +90,17 @@ def append(self, new_data):
     
     # 4. Change the next of last node
     last.next = new_node
+
+
+# Find the middle of the linked list
+'''Using brute force method'''
+def getMiddle(head):
+    ans = []
+    
+    while head is not None:
+        ans.append(head.data)
+        head = head.next
+    
+    mid = len(ans) // 2
+    
+    return ans[mid]
