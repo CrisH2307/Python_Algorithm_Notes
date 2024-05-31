@@ -64,7 +64,7 @@ Complexity:
 #             j += 1
 #             k += 1
 
-def mergeSort(arr):
+def mergeSort(arr) -> None:
     if len(arr) > 1:
         left_arr = arr[: len(arr) // 2]
         right_arr = arr[len(arr) // 2 :]
