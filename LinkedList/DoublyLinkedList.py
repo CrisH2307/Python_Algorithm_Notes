@@ -175,3 +175,24 @@ def reverse(self):
     # Before changing head, check for the cases like empty list and list with only one node
     if temp is not None:
         self.head = temp.prev
+
+
+# Rotate
+def rotate(self, k):
+    if k == 0: return
+    count = 1
+    curr = self.head
+        
+    while count < k and curr is not None:
+        curr = curr.next
+        count += 1
+        
+    if curr is None:
+        return
+    
+    kthNode = curr
+    while curr.next is not None:
+        curr = curr.next
+    curr.next = self.head
+    self.head = kthNode.next
+    kthNode.next = None
