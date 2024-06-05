@@ -117,3 +117,30 @@ def reverse(self):
             prev = curr
             curr = next_node
         self.head = prev
+
+
+# Delete last occurence
+def deleteLast(head, x):
+    curr = head
+    point = None
+    
+    while curr is not None:
+        # If found key, update 
+        if curr.data == x:
+            point = curr
+        curr = curr.next
+    
+    # If the last occurrence is the last node 
+    if point is not None and point.next is None:
+        curr = head
+        while curr.next != point:
+            curr = curr.next
+        curr.next = None
+    
+    # If it is not the last node 
+    if point != None and point.next != None:
+        point.data = point.next.data
+        curr = point.next
+        point.next = point.next.next
+        
+    return head
