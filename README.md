@@ -1,4 +1,5 @@
-# Python_Algorithm_Notes
+# Classification of Data Structure
+## Linear Data Structures
 
 ## Non-Linear Data Structures
 Non-linear data structures do not follow a sequential order; each element can connect to multiple elements, forming complex relationships.
