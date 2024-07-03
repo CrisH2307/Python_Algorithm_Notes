@@ -5,6 +5,9 @@
 + Breaking the problem into smaller sub-problems
 + Solving the sub-problems, and combining them to get the disired output
 
+![](https://miro.medium.com/v2/resize:fit:1150/1*xjYT0Y3FT_K-xFEP-q_k_Q.gif)
+
+
 ### How does it work??
     1. Divide: Divide the given problem into sub-problems using recursion.
     2. Conquer: Solve the smaller sub-problems recursively. If the subproblem is small enough, then solve it directly.

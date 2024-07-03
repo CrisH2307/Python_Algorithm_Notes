@@ -18,6 +18,7 @@ is the smallest among all other nodes.
      / \   / 
     4  5  9 
 ```
+![](https://gochronicles.com/content/images/2021/08/heap-sort.gif)
 
 ### Operation:
 - Heapify: The process of creating a heap data structure from a binary tree. It is used to create  a Min-Heap or a Max-Heap

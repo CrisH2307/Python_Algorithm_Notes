@@ -4,8 +4,10 @@ Searching is the fundamental process of locating a specific element or item with
 
 #### Searching Algorithms:
 + Linear Search
-+ Sentinel Linear Search
+![](https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif)
 + Binary Search
+![](https://miro.medium.com/v2/resize:fit:1200/1*QBsOC7m5XSiMFKgPc7hG2A.gif)
++ Sentinel Linear Search
 + Meta Binary Search | One-Sided Binary Search
 + Ternary Search
 + Jump Search
