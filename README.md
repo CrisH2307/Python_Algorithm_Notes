@@ -57,3 +57,60 @@ Non-linear data structures do not follow a sequential order; each element can co
     + Priority Queue: A hospital's patient queue can be modeled using a heap, with patients ordered by priority for efficient treatment.
     + Memory Allocation: The memory heap in programming languages allocates memory dynamically, utilizing heap data structure principles.
 
+---
+
+# Classification of Algorithm
+There are many ways of classifying algorithms and a few of them are shown below:
++ Implementation Method
++ Design Method
++ Other Classifications
+
+Classification by Implementation Method:
+
+1. Recursion or Iteration
+A recursive algorithm is one that calls itself repeatedly until a base condition is satisfied. It is a common method used in functional programming languages like C, C++, etc.
+Iterative algorithms use constructs like loops and sometimes other data structures like stacks and queues to solve the problems.
+Some problems are suited for recursive and others are suited for iterative. For example, the Towers of Hanoi problem can be easily understood in recursive implementation. Every recursive version has an iterative version and vice versa.
+
+2. Procedural or Declarative (non-Procedural)-
+In declarative programming languages, we say what we want without having to say how to do it.
+With procedural programming, we have to specify the exact steps to get the result. For example, SQL is more declarative than procedural, because the queries don’t specify the steps to produce the result. Examples of procedural languages include C, PHP, and PERL.
+
+3. Serial or Parallel or Distributed-
+In general, while discussing the algorithms we assume that computers execute one instruction at a time. These are called serial algorithms.
+Parallel algorithms take advantage of computer architectures to process several instructions at a time. They divide the problem into subproblems and serve them to several processors or threads. Iterative algorithms are generally parallelized.
+If the parallel algorithms are distributed to different machines then we call such algorithms distributed algorithms.
+
+4. Deterministic or Non-Deterministic-
+Deterministic algorithms solve the problem with a predefined process, whereas non-deterministic algorithms guess the best solution at each step through the use of heuristics.
+
+5. Exact or Approximate-
+The algorithms for which we are able to find the optimal solutions are called exact algorithms. In computer science, if we do not have the optimal solution, we give approximation algorithms.
+Approximation algorithms are generally associated with NP-hard problems.
+
+#### Design Method:
+
+Another way of classifying algorithms is by their design method.
+
+1. Greedy Method
+Greedy algorithms work in stages.
+In each stage, a decision is made that is good at that point, without bothering about the future consequences. Generally, this means that some local best is chosen. It assumes that the local best selection also makes for the global optimal solution.
+
+2. Divide and Conquer
+The Divide and Conquer strategy solve a problem by:
+- Divide: Breaking the problem into subproblems that are themselves smaller instances of the same type of problem.
+- Recursion: Recursively solving these subproblems.
+- Conquer: Appropriately combining their answers.
+Examples: merge sort and binary search algorithms.
+
+3. Dynamic Programming-
+Dynamic programming (DP) and memorization work together. The difference between DP and divide and conquer is that in the case of the latter there is no dependency among the subproblems, whereas in DP there will be an overlap of subproblems. By using memorization [maintaining a table for already solved sub problems], DP reduces the exponential complexity to polynomial complexity (O(n2), O(n3), etc.) for many problems. The difference between dynamic programming and recursion is in the memorization of recursive calls. When subproblems are independent and if there is no repetition, memorization does not. Hence dynamic programming is not a solution for all problems.
+By using memorization [maintaining a table of subproblems already solved], dynamic programming reduces the complexity from exponential to polynomial.
+
+4. Linear Programming-
+In linear programming, there are inequalities in terms of inputs and maximizing (or minimizing) some linear function of the inputs.
+Many problems (example: maximum flow for directed graphs) can be discussed using linear programming.
+
+5. Reduction (Transform and Conquer)
+In this method, we solve a difficult problem by transforming it into a known problem for which we have asymptotically optimal algorithms. In this method, the goal is to find a reducing algorithm whose complexity is not dominated by the resulting reduced algorithms. For example, the selection algorithm for finding the median in a list involves first sorting the list and then finding out the middle element in the sorted list. These techniques are also called transform and conquer.
+
