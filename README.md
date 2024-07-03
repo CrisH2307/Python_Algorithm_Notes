@@ -92,12 +92,12 @@ Approximation algorithms are generally associated with NP-hard problems.
 
 Another way of classifying algorithms is by their design method.
 
-1. Greedy Method
+#### 1. Greedy Method
 >
 Greedy algorithms work in stages.
 In each stage, a decision is made that is good at that point, without bothering about the future consequences. Generally, this means that some local best is chosen. It assumes that the local best selection also makes for the global optimal solution.
 
-2. Divide and Conquer
+#### 2. Divide and Conquer
 >
 The Divide and Conquer strategy solve a problem by:
 - Divide: Breaking the problem into subproblems that are themselves smaller instances of the same type of problem.
@@ -105,17 +105,17 @@ The Divide and Conquer strategy solve a problem by:
 - Conquer: Appropriately combining their answers.
 Examples: merge sort and binary search algorithms.
 
-3. Dynamic Programming
+#### 3. Dynamic Programming
 >
 Dynamic programming (DP) and memorization work together. The difference between DP and divide and conquer is that in the case of the latter there is no dependency among the subproblems, whereas in DP there will be an overlap of subproblems. By using memorization [maintaining a table for already solved sub problems], DP reduces the exponential complexity to polynomial complexity (O(n2), O(n3), etc.) for many problems. The difference between dynamic programming and recursion is in the memorization of recursive calls. When subproblems are independent and if there is no repetition, memorization does not. Hence dynamic programming is not a solution for all problems.
 By using memorization [maintaining a table of subproblems already solved], dynamic programming reduces the complexity from exponential to polynomial.
 
-4. Linear Programming 
+#### 4. Linear Programming 
 >
 In linear programming, there are inequalities in terms of inputs and maximizing (or minimizing) some linear function of the inputs.
 Many problems (example: maximum flow for directed graphs) can be discussed using linear programming.
 
-5. Reduction (Transform and Conquer)
+#### 5. Reduction (Transform and Conquer)
 >
 In this method, we solve a difficult problem by transforming it into a known problem for which we have asymptotically optimal algorithms. In this method, the goal is to find a reducing algorithm whose complexity is not dominated by the resulting reduced algorithms. For example, the selection algorithm for finding the median in a list involves first sorting the list and then finding out the middle element in the sorted list. These techniques are also called transform and conquer.
 
