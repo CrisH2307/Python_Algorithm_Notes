@@ -1,8 +1,7 @@
 # Recursion
 + Function which calls itself is called recursion. A recursive method solves a problem by calling a copy of itself to work on a smaller problem. Each time a function calls itself with a slightly simpler version of the original problem. This sequence of smaller problems must eventually converge on a base case.
-```
+
 ![](https://skilled.dev/images/recursion-demo.gif)
-```
 
 #### Step by step of recursive approach
 + Base case: A recursive function must have a terminating condition at which the process will stop calling itself. Such a case is known as the base case. In the absence of a base case, it will keep calling itself and get stuck in an infinite loop. Soon, the recursion depth* will be exceeded and it will throw an error.
@@ -34,3 +33,9 @@ def factorial(x):
 
 ```
 
+### 5 Step to solving recursive problem
+1. Find the simplest possible input (Ex: think the function of simple result like factorial(1) = 1 => So make the base case like that)
+2. Visualize the problem by drawing or thinking
+3. Find the relative (Every recursion problem will always have clue and relation), relate hard cases to simpler cases
+4. Generalize the pattern
+5. Write code by combining recursive pattern with the base case 
