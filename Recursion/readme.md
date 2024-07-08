@@ -1,8 +1,6 @@
 # Recursion
 + Function which calls itself is called recursion. A recursive method solves a problem by calling a copy of itself to work on a smaller problem. Each time a function calls itself with a slightly simpler version of the original problem. This sequence of smaller problems must eventually converge on a base case.
-```
 ![](https://skilled.dev/images/recursion-demo.gif)
-```
 
 #### Step by step of recursive approach
 + Base case: A recursive function must have a terminating condition at which the process will stop calling itself. Such a case is known as the base case. In the absence of a base case, it will keep calling itself and get stuck in an infinite loop. Soon, the recursion depth* will be exceeded and it will throw an error.
