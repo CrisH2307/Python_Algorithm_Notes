@@ -1,5 +1,6 @@
 # Recursion
 + Function which calls itself is called recursion. A recursive method solves a problem by calling a copy of itself to work on a smaller problem. Each time a function calls itself with a slightly simpler version of the original problem. This sequence of smaller problems must eventually converge on a base case.
+
 ![](https://skilled.dev/images/recursion-demo.gif)
 
 #### Step by step of recursive approach
