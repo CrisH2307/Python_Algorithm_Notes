@@ -40,36 +40,74 @@ Limitation of Queue:
 we can make use of the empty spaces. It is called Circular Queuee
 
 '''
+# class Queue:
+#     def __init__(self):
+#         self.queue = []
+
+#     def enqueue(self, item):
+#         self.queue.append(item)
+    
+#     def dequeue(self):
+#         if len(self.queue) < 1:
+#             return None     
+#         return self.queue.pop(0)
+    
+#     def display(self):
+#         print(self.queue)
+
+#     def size(self):
+#         return len(self.queue)
+
+
+
+# q = Queue()
+# q.enqueue(1)
+# q.enqueue(2)
+# q.enqueue(3)
+# q.enqueue(4)
+# q.enqueue(5)
+
+# q.display()
+
+# q.dequeue()
+
+# print("After removing an element")
+# q.display()
+
+from collections import deque
+
 class Queue:
     def __init__(self):
-        self.queue = []
-
+        self.items = deque()
+    
+    def is_empty(self):
+        return not self.items
+    
     def enqueue(self, item):
-        self.queue.append(item)
-    
+        self.items.append(item)
+
     def dequeue(self):
-        if len(self.queue) < 1:
-            return None     
-        return self.queue.pop(0)
-    
-    def display(self):
-        print(self.queue)
+        return self.items.popleft()
 
     def size(self):
-        return len(self.queue)
+        return len(self.items)
+    
+    def peek(self):
+        return self.items[0]
+    
+    def __str__(self):
+        return str(self.items)
+
+if __name__ == "__main__":
+    q = Queue()
+    print(q)
+    print(q.is_empty())
+    q.enqueue("A")
+    q.enqueue("B")
+    q.enqueue("C")
+    print(q)
+    print(q.dequeue())
+    print(q.dequeue())
+    print(q)
 
 
-
-q = Queue()
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
-q.enqueue(5)
-
-q.display()
-
-q.dequeue()
-
-print("After removing an element")
-q.display()
