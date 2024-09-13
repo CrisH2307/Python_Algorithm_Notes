@@ -6,8 +6,11 @@ def power(a, b):
         return 1
     if a == 0:
         return 0
-    if b == 1:
+    if b == 1 or a == 1:
         return a 
-    return a * power(a, b - 1)
+    elif b > 1: 
+        return a * power(a, b - 1)
+    else:
+        return (1 / a) * power(a, b + 1)
     
 print(power(3, 4))
