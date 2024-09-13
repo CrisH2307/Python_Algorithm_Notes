@@ -11,6 +11,6 @@ def power(a, b):
     elif b > 1: 
         return a * power(a, b - 1)
     else:
-        return (1 / a) * power(a, b + 1)
+        return power(a, b + 1) / a
     
 print(power(3, 4))
