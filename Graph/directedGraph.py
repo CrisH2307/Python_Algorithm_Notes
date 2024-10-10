@@ -42,6 +42,35 @@ def breadthFirstSearch(graph, start):
             queue.append(neighbor)
 '''
 
+'''
+Takes in an obj representing the adjacency list of a directed acyclic graph and two nodes
+(start, dst). Returns boolean indicating whether or not there exists a directed path 
+between the start and destination nodes.
+'''
+'''
+def hasPath(graph, start, dst):
+    if start == dst:
+        return True
+
+    for neighbor in graph[start]:
+        if hasPath(graph, neighbor, dst):
+            return True
+    
+    return False
+'''
+def hasPath(graph, start, dst):
+    queue = [start]
+
+    while queue:
+        curr = queue.pop(0)
+
+        if (curr == dst):
+            return True
+
+        for neighbor in graph[curr]:
+            queue.append(neighbor)
+
+    return False
 
 
 graph = {
@@ -54,4 +83,6 @@ graph = {
 }
 
 # depthFirstSearch(graph, 'a')
-breadthFirstSearch(graph, 'a')
+# breadthFirstSearch(graph, 'a')
+
+print(hasPath(graph, 'c', 'f'))
