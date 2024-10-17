@@ -6,7 +6,7 @@ class Vertex:
     # Only add the adjacency if it's not already there
     # Assume other is already in the adjacencies
     def add_adjacency(self, other, weight):
-        if other not in self.adjacencies:
+        if not any(filer(lambda: o, o[0] == other, self.adjacencies)):
             self.adjacencies.append((other, weight))
 
 class Graph:
