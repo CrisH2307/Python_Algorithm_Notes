@@ -46,3 +46,33 @@ Importance of Tree Data Structure:
 - Provide moderate access/search quicker than Linked List but slower than arrays
 - Provide moderate insertion/deletion quicker than Arrays and slower than unordered linked list
 - Tree dont have an upper limit on the number of nodes as nodes are linked using pointers
+
+
+### Perfectly Balanced Trees
+- Number of nodes in left/right subtrees differ by no more than 1 for all nodes in tree(not just root)
+- If at any node the number of nodes in left/right subtrees differ by more than 1, the entire tree isn't perfectly balanced.
+
+### Height Balanced Trees
+- Height of left/right subtrees differ by no more than 1 for all nodes in tree (not just root)
+- If at any node the height of the left/right subtrees differ by more than 1, the entire tree isn't height balanced
+
+
+# AVL Tree
+- Height balanced binary search trees
+- Each node must maintain extra information that allows us to find the balance of a node without having to calculate the heights
+
+` NodeBalance = Height of Right Subtree - Height of Left Subtree `
++ Positive balance means right subtree is taller
++ Negative balance means left subtree is taller
+
+### Insertion algorithm
+- Start with basic BST insertion algorithm
+- After insert a node, move up the tree starting from the inserted node's parent and check its balance.
+- If balance of node is not 0, +1, or -1, we must fix the tree by performing a rotation.
+- There are two types of rotation.
++ Single rotation
++ Double rotation
++ To determine which to use we look at the sign of the balance of the one that is off balanced (the one with +/-2) and the sign of the balance on its taller child
+    + If both balance have the same sign, use single rotation
+    + If the balances have different sign, use double rotation
+- Continue back up the tree until the root is reached, rotating as necessary.
