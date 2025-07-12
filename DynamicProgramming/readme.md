@@ -4,6 +4,7 @@
 Consider the problem of the shortest driving path from San Francisco (SF) to San Diego (SD). Since the highway goes through Los Angeles (LA), the problem can be divided into two sub-problems - driving from SF to LA and driving from LA to SD. 
 
 In addition, **shortest_path(SF, SD) = shortest_path(SF, LA) + shortest_path(LA, SD)**. Optimal solution to the problem = combination of optimal solutions of the sub-problems.
+
 ![](road.png)
 
 Now let’s look at an example where the problem does NOT have an optimal substructure. Consider buying the cheapest airline ticket from New York (NYC) to San Francisco (SF). Let’s assume there is no direct flight, and we must transit through Chicago (CHI). Even though our trip is divided into two parts, NYC to CHI and CHI to SF, usually the cheapest ticket from NYC to SF != the cheapest ticket from NYC to CHI + the cheapest ticket from CHI to SF because airlines do not generally price multi-leg trips as the sum of each flight's cost to maximize profit.
