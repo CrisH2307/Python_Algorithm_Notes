@@ -97,3 +97,8 @@ Mathematically, DP is an optimization method on one or more sequences (e.g, arra
 ## How to Develop Intuition for Dynamic Programming Problems
 As you may have noticed, the concept of DP is quite simple—find the overlapping sub-problems, solve them, and use the sub-problem solutions to find the solution to the original problem. The hard part is to know how to find the **recurrence relation**. To best way to develop intuition is to get familiar with common patterns. Some classic examples include longest common subsequence (LCS), 0-1 knapsack, and longest increasing subsequence (LIS).
 
+## How to think a problem of Dynamic Programming?
+[](DP_howToThink.md)
+
+## Different Approach
+[](DP_pattern.md)
