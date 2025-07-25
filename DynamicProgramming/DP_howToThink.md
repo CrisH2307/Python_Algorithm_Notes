@@ -166,7 +166,7 @@ def factorial(n):
 - Often can reduce space usage
 - Keep only necessary previous states
 
-## 5. Let's Try Another Problem: Climbing Stairs
+## Let's Try Another Problem: Climbing Stairs
 
 You can climb 1 or 2 steps at a time. How many ways to climb n steps?
 
