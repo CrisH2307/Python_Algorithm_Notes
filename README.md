@@ -119,3 +119,6 @@ Many problems (example: maximum flow for directed graphs) can be discussed using
 >
 In this method, we solve a difficult problem by transforming it into a known problem for which we have asymptotically optimal algorithms. In this method, the goal is to find a reducing algorithm whose complexity is not dominated by the resulting reduced algorithms. For example, the selection algorithm for finding the median in a list involves first sorting the list and then finding out the middle element in the sorted list. These techniques are also called transform and conquer.
 
+
+# Problem Solving Real Life - Leetcode Roadmap
+<img width="723" height="656" alt="Screenshot 2025-08-26 at 3 20 35 PM" src="https://github.com/user-attachments/assets/393a0812-4631-44ff-80fb-fb7882ea8d75" />
