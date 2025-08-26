@@ -150,3 +150,128 @@ def deleteLast(head, x):
         
     return head
 ```
+
+# Leetcode Pattern Problem
+Linked list problems often feel tricky because we can only move **forward** and we work with **pointers**, not indices.  
+But almost every problem boils down to a few common techniques.
+
+---
+
+## 1. Head & Tail Dummy Nodes
+### Idea:
+- Create a **dummy head** (before real head) or **dummy tail** (after real tail).
+- Makes insertions/deletions easier, avoids special cases at boundaries.
+
+### Common Use:
+- **Design Linked List** (LeetCode 707)
+- **LRU Cache** (LeetCode 146, using a doubly linked list)
+
+---
+
+## 2. Find the Middle (Fast & Slow Pointers)
+### Idea:
+- Use two pointers:
+  - `slow` moves 1 step
+  - `fast` moves 2 steps
+- When `fast` hits the end, `slow` is at the middle.
+
+### Common Use:
+- **Palindrome Linked List** (LeetCode 234)
+- **Reorder List** (LeetCode 143)
+- **Maximum Twin Sum** (LeetCode 2130)
+
+---
+
+## 3. Reverse a Linked List (Full or Partial)
+### Idea:
+- Iteratively change `curr.next` to point to `prev`.
+- Can reverse the whole list, or just a segment.
+
+### Common Use:
+- **Reverse Linked List** (LeetCode 206) → whole list
+- **Reverse Linked List II** (LeetCode 92) → partial segment
+- As a sub-step in problems like Palindrome check or Twin Sum
+
+---
+
+## 4. Reverse the Second Half
+### Idea:
+- Find the middle.
+- Reverse the second half.
+- Now you can walk from start and from (reversed) end simultaneously.
+
+### Common Use:
+- **Palindrome Linked List** (LeetCode 234)
+- **Reorder List** (LeetCode 143)
+- **Maximum Twin Sum** (LeetCode 2130)
+
+---
+
+## 5. Two Pointers, Same Speed (Different Starts)
+### Idea:
+- Start two pointers at different nodes, move both forward 1 step until they meet.
+
+### Common Use:
+- **Intersection of Two Linked Lists** (LeetCode 160)
+- **Cycle detection phase 2** (LeetCode 142) → finding cycle entry after detection
+- Comparing two halves after reverse (Palindrome, Twin Sum)
+
+---
+
+## 6. Two Pointers, Different Speed
+### Idea:
+- `fast` moves 2 steps, `slow` moves 1 step.
+- Useful for detecting cycles or finding the middle.
+
+### Common Use:
+- **Linked List Cycle** (LeetCode 141)
+- **Linked List Cycle II** (LeetCode 142)
+- **Find Middle** for Palindrome / Reorder / Twin Sum
+
+---
+
+## 7. Two Pointers From Opposite Ends
+### Idea:
+- In arrays → easy (`i=0`, `j=n-1`).  
+- In linked list → simulate using **reverse second half** or copy to array.
+
+### Common Use:
+- **Two Sum II (sorted array)** (LeetCode 167)
+- In linked list → used indirectly for Palindrome / Twin Sum
+
+---
+
+## 8. Traversal Tricks
+### Single traversal:
+- While loop until `node is None`.
+- Count length, find max/min, etc.
+
+### Double traversal:
+- First pass to get length.
+- Second pass to reach a specific index.
+
+### Common Use:
+- **Remove Nth Node from End** (LeetCode 19) → either 2 passes, or 1 pass with fast/slow.
+
+---
+
+# Summary Table
+
+| Technique                   | Example Problems                             |
+|------------------------------|----------------------------------------------|
+| Dummy Head/Tail              | Design Linked List (707), LRU Cache (146)   |
+| Find Middle (fast/slow)      | Palindrome (234), Reorder List (143), Twin Sum (2130) |
+| Reverse Full List            | Reverse Linked List (206)                   |
+| Reverse Partial List         | Reverse Linked List II (92)                 |
+| Reverse Second Half          | Palindrome (234), Reorder (143), Twin Sum (2130) |
+| Two Pointers, Same Speed     | Intersection (160), Cycle II (142)          |
+| Two Pointers, Different Speed| Cycle detection (141, 142), Find Middle     |
+| Opposite Ends (with reverse) | Palindrome (234), Twin Sum (2130)           |
+| Length-based Traversal       | Remove Nth from End (19)                    |
+
+---
+
+💡 **Tip:**  
+Most medium LeetCode linked list problems are solved with:  
+- **Find middle** + **Reverse half** + **Two pointers**  
+This combo covers *Palindrome*, *Reorder List*, *Twin Sum*, and more.
