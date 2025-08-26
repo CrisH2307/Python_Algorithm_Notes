@@ -275,3 +275,48 @@ But almost every problem boils down to a few common techniques.
 Most medium LeetCode linked list problems are solved with:  
 - **Find middle** + **Reverse half** + **Two pointers**  
 This combo covers *Palindrome*, *Reorder List*, *Twin Sum*, and more.
+
+# Definition for singly-linked list
+```
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def template(self, head: ListNode) -> int:
+        # -----------------------
+        # 1. Find middle (fast/slow)
+        # -----------------------
+        slow, fast = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        # Now `slow` is at the middle (start of 2nd half)
+
+        # -----------------------
+        # 2. Reverse the second half
+        # -----------------------
+        prev, curr = None, slow
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        # Now `prev` is the head of the reversed half
+
+        # -----------------------
+        # 3. Two pointers walk (left from head, right from reversed half)
+        # -----------------------
+        left, right = head, prev
+        result = 0
+        while right:   # usually run n/2 steps
+            # Example operation: track max pair sum
+            result = max(result, left.val + right.val)
+
+            # Move both forward
+            left = left.next
+            right = right.next
+
+        return result
+```
